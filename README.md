@@ -1,6 +1,6 @@
-# Proof of Dijkstra algorithm in Rocq
+# Proof of Dijkstra's algorithm in Rocq
 
-This repository contains a proof of Dijkstra algorithm using the Rocq prover.
+This repository contains a proof of Dijkstra's algorithm using the Rocq prover.
 
 A few comments:
 
