@@ -4,7 +4,7 @@ This repository contains a proof of Dijkstra algorithm using the Rocq prover.
 
 A few comments:
 
-## The invariant we use:
+## about the invariant
 
 in the proof the invariant we use basically says
 - for all vertex v not in the priority queue, either dist[v] is infinite and there is no path from src to v, or dist[v] is the optimal distance from src to v **and there is a path from src to v having that weight and not going through any vertex still in the queue** (we call restricted a path only encountering node not in the queue)
@@ -53,7 +53,7 @@ d=[s:0, v:0, v0:0, u:inf]
 
 which is obviously wrong, yet the algorithm started with the "weak and wrong invariant".
 
-## the performances
+## about efficiency
 
 In my implementation of Dijkstra, I use a simple list for the priority queue, and actually, I kind of used lists everywhere, which is very inefficient.
 
