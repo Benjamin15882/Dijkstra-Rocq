@@ -15,7 +15,7 @@ note that:
 - for node not in the queue, the idea is that we have a restricted path that is optimal among all paths
 - for node in the queue, the idea is that we have a restricted path that is optimal among all restricted paths
 
-also note that most sources I found use a weaker invariant that I think is incorrect (they forgot the bold part of the invariant written above): for node not in the queue, forcing to have an optimal path restricted to node not in the queue is important as shows the following example :
+also note that most sources I found use a weaker invariant that I think is incorrect (they forgot the bold part of the invariant written above). Indeed, our bold condition (namely, forcing node not in the queue to have an optimal path restricted to node not in the queue) is important as shows the following example :
 
 let us consider the following graph: a line graph with four vertices and only weigth 0
 
@@ -26,7 +26,7 @@ let us consider this state of memory at the beginning of one loop:
 d=[s:0, v:0, v0:0, u:inf]
 queue = [v, u]
 ```
-the invariant is verified:
+the "weak and wrong invariant" is verified:
 - for s and v0: optimal distances
 - for v and u: we have the optimal restricted distances: only v has a restricted path.
 
@@ -40,7 +40,7 @@ d=[s:0, v:0, v0:0, u:inf]
 queue=[u]
 ```
 
-now the invariant is no longer verified (we have a restricted path for u0, yet dist[u] = inf
+now the "weak and wrong invariant" is no longer verified (we have a restricted path for u0, yet dist[u] = inf
 
 ---
 
@@ -51,7 +51,7 @@ and now the queue is empty so the algorithm returns
 d=[s:0, v:0, v0:0, u:inf]
 ```
 
-which is obviously wrong, yet the algorithm started with the "weak and wrong invariant".
+which is obviously wrong, yet the algorithm started with a state memory verifying the "weak and wrong invariant".
 
 ## about efficiency
 
@@ -59,7 +59,7 @@ In my implementation of Dijkstra, I use a simple list for the priority queue, an
 
 My goal here was to give a constructive proof of correctness of the algorithm, not to speak about complexity.
 
-I know the complexity of my implementation is just horrible, but anyway, I would not have written a code in Rocq if you want it to run someday, or if I am seeking any kind of efficiency.
+I know the complexity of my implementation is just horrible, but anyway, I would not have written a code in Rocq if I wanted to run it someday, or if I was seeking any kind of efficiency.
 
 
 
@@ -67,4 +67,3 @@ I know the complexity of my implementation is just horrible, but anyway, I would
 
 
 
-Note : on peut virer le s au dessus et partir de l'étape 2 pour avoir un exemple minimal
